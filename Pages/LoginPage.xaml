@@ -15,6 +15,7 @@
             <RowDefinition Height="Auto"/>  
             <RowDefinition Height="Auto"/>  
             <RowDefinition Height="Auto"/>  
+            <RowDefinition Height="Auto"/>  
         </Grid.RowDefinitions>
         <Grid Grid.Row = "0" HorizontalAlignment="Center">
             <TextBlock 
@@ -31,6 +32,7 @@
         </Grid>
         <Grid Grid.Row = "2" HorizontalAlignment="Center">
             <TextBox
+                x:Name="LoginTb"
                 FontSize="18"
                 Width="100"
                 Height="22">
@@ -44,6 +46,7 @@
         </Grid>
         <Grid Grid.Row = "4" HorizontalAlignment="Center">
             <TextBox
+                x:Name = "PasswordTb"
                 FontSize="18"
                 Width="100"
                 Height="22">
@@ -52,13 +55,25 @@
         <Grid Grid.Row = "5" HorizontalAlignment="Center">
             <Button
                 Content="Войти"
-                FontSize="18">
+                FontSize="18"
+                Click="LoginBtn_CLick">
             </Button>
         </Grid>
-        <Grid Grid.Row = "6" HorizontalAlignment="Left">
+        <Grid Grid.Row = "6" HorizontalAlignment="Center">
+            <Label 
+                x:Name = "ErrorLoginLabel"
+                x:FieldModifier="public"
+                Content="Неправильный логин или пароль"
+                FontSize="18"
+                Foreground="Red"
+                Visibility="Hidden">
+            </Label>
+        </Grid>
+        <Grid Grid.Row = "7" HorizontalAlignment="Left">
             <Button
                 Content="На главную страницу"
-                FontSize="18">
+                FontSize="18"
+                Click = "BackToWelcomePageBtn_Click">
             </Button>
         </Grid>
     </Grid>
