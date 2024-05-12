@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Chat_Sirinity_Client.Authentication;
 using Chat_Sirinity_Client.Pages;
+using Chat_Sirinity_Client;
 
 namespace Chat_Sirinity_Client.Tools;
 
@@ -11,7 +12,7 @@ public class TCP
 {
     public static string Name { get; set; }
     public static string Password { get; set; }
-    private void StartConnection(string login, string password, Frame mainFrame)
+    private void StartConnection(string login, string password, Frame mainFrame, LoginPage loginWindow)
     {
         Name = login;
         Password = password;
@@ -27,10 +28,11 @@ public class TCP
             if (CustomAuthentication.IsLoginSuccessful)
             {
                 mainFrame.Content = new ListOfChats();
+                loginWindow.SetErrorLabelVisibility(Visibility.Collapsed);
             }
             else
             {
-                
+                loginWindow.SetErrorLabelVisibility(Visibility.Visible);
             }
         }
         catch (Exception e)
@@ -40,8 +42,8 @@ public class TCP
         }
     }
 
-    public void ConnectToChat(string login, string password, Frame mainFrame)
+    public void ConnectToChat(string login, string password, Frame mainFrame, LoginPage loginWindow)
     { 
-        StartConnection(login, password, mainFrame);
+        StartConnection(login, password, mainFrame, loginWindow);
     }
 }

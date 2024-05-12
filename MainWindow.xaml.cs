@@ -1,11 +1,8 @@
-﻿using System.Net;
-using System.Net.Sockets;
-using System.Runtime.InteropServices;
-using System.Text;
+﻿using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Interop;
-using System.Windows.Shapes;
+using System.Windows.Input;
+using System.Windows.Media.Imaging;
 using Chat_Sirinity_Client.Tools;
 
 namespace Chat_Sirinity_Client;
@@ -13,6 +10,14 @@ namespace Chat_Sirinity_Client;
 public partial class MainWindow : Window
 {
     public static Frame MainFrameInstance { get; set; }
+    
+    private void LoadIcon()
+    {
+        var path = Path.Combine(Environment.CurrentDirectory, "Icons", "donut.png");
+        var uri = new Uri(path, UriKind.Relative);
+        var bitmap = new BitmapImage(uri);
+        Icon = bitmap;
+    }
     public MainWindow()
     {
         InitializeComponent();
@@ -21,6 +26,7 @@ public partial class MainWindow : Window
     }
     protected override void OnSourceInitialized(EventArgs e)
     {
+        LoadIcon();
         IconHelper.RemoveIcon(this);
     }
     

@@ -17,13 +17,19 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
+                        <Border x:Name="border"
+                                Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="5">
                             <ContentPresenter HorizontalAlignment="Center"
-                                              VerticalAlignment="Center" />
+                                              VerticalAlignment="Center"/>
                         </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#CCE5FF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -43,7 +49,7 @@
                 <Grid>
                     <TextBlock
                         Padding="0, 30, 0, 0"
-                        Text="Добро пожаловать в ChatSirinity!"
+                        Text="Добро пожаловать!"
                         HorizontalAlignment="Center"
                         FontSize="29"
                         Foreground="#c49a1a"
@@ -57,11 +63,13 @@
                     <Button FontSize="15" Height="40" Width="{Binding ElementName=RegisterBtn, Path=ActualWidth}"
                             Content="Войти"
                             Style="{StaticResource CustomButtonStyle}"
+                            FontFamily="Segoe UI"
                             Click="LoginBtn_Click">
                     </Button>
                     <Button x:Name="RegisterBtn" FontSize="15" Height="40" Width="Auto"
                             Content="Зарегистрироваться"
                             Style="{StaticResource CustomButtonStyle}"
+                            FontFamily="Segoe UI"
                             Click="RegisterBtn_Click"
                             Margin="0, 10, 0, 0">
                     </Button>
