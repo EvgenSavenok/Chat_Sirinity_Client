@@ -26,4 +26,13 @@
       </Page>
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Images\emoji-background.png" />
+      <Resource Include="Images\emoji-background.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Styles\" />
+    </ItemGroup>
+
 </Project>

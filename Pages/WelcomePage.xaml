@@ -3,63 +3,70 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:Chat_Sirinity_Client"
       mc:Ignorable="d"
       Title="WelcomePage" Height="450" Width="800">
+    <Page.Resources>
+        <ImageBrush x:Key="BackgroundBrush" ImageSource="/images/emoji-background.png" />
+        <LinearGradientBrush x:Key="GradientStyle" StartPoint="0.5,1" EndPoint="0.5,0">
+            <GradientStop Color="LightBlue" Offset="0" />
+            <GradientStop Color="Yellow" Offset="1" />
+        </LinearGradientBrush>
+        <Style x:Key="CustomButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource GradientStyle}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.3*"/>  
-            <RowDefinition Height="0.2*"/>  
-            <RowDefinition Height="0.2*"/>  
-            <RowDefinition Height="0.3*"/>  
-            <RowDefinition Height="0.3*"/>  
-        </Grid.RowDefinitions>
-        <Grid Grid.Row = "0" HorizontalAlignment="Center">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width = "Auto"/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column = "0">
-                <TextBlock 
-                    Text = "Добро пожаловать в ChatSirinity!"
-                    HorizontalAlignment="Center"
-                    FontSize="32">
-                </TextBlock>    
+        <Grid.Background>
+            <SolidColorBrush Color="#CCE5FF" />
+        </Grid.Background>
+        <Grid Background="{StaticResource BackgroundBrush}" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.4*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" HorizontalAlignment="Center">
+                <Grid>
+                    <TextBlock
+                        Padding="0, 30, 0, 0"
+                        Text="Добро пожаловать в ChatSirinity!"
+                        HorizontalAlignment="Center"
+                        FontSize="29"
+                        Foreground="#c49a1a"
+                        FontFamily="Segoe UI">
+                    </TextBlock>
+                </Grid>
             </Grid>
-        </Grid>
-        <Grid Grid.Row = "1" HorizontalAlignment="Center">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width = "Auto"/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column = "0" HorizontalAlignment="Center">
-                <Button
-                    Content = "Войти"
-                    FontSize="18"
-                    Click="LoginBtn_Click">
-                </Button>
-            </Grid>
-        </Grid>
-        <Grid Grid.Row = "2" HorizontalAlignment="Center">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width = "Auto"/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column = "0" HorizontalAlignment="Center">
-                <Button
-                    Content = "Зарегистрироваться"
-                    FontSize="18">
-                </Button>
-            </Grid>
-        </Grid>
-        <Grid Grid.Row = "3" HorizontalAlignment="Center">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width = "Auto"/>
-                <ColumnDefinition Width = "Auto"/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column = "0">
-                <CheckBox IsChecked = "False"></CheckBox>
-            </Grid>
-            <Grid Grid.Column = "1">
-                <Label Content = "Запомнить меня"></Label>
-            </Grid>
+            <Border Background="White" CornerRadius="10" Padding="10" Width="300"
+                    HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1">
+                <StackPanel>
+                    <Button FontSize="15" Height="40" Width="{Binding ElementName=RegisterBtn, Path=ActualWidth}"
+                            Content="Войти"
+                            Style="{StaticResource CustomButtonStyle}"
+                            Click="LoginBtn_Click">
+                    </Button>
+                    <Button x:Name="RegisterBtn" FontSize="15" Height="40" Width="Auto"
+                            Content="Зарегистрироваться"
+                            Style="{StaticResource CustomButtonStyle}"
+                            Click="RegisterBtn_Click"
+                            Margin="0, 10, 0, 0">
+                    </Button>
+                </StackPanel>
+            </Border>
         </Grid>
     </Grid>
 </Page>

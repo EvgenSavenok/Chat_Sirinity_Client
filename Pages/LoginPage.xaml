@@ -6,8 +6,12 @@
       xmlns:local="clr-namespace:Chat_Sirinity_Client"
       mc:Ignorable="d"
       Title="LoginPage" Height="450" Width="800">
-    <Grid>
+    <Page.Resources>
+        <ImageBrush x:Key="BackgroundBrush" ImageSource="/images/emoji-background.png"/>
+    </Page.Resources>
+    <Grid Background="{StaticResource BackgroundBrush}">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>  
             <RowDefinition Height="Auto"/>  
             <RowDefinition Height="Auto"/>  
             <RowDefinition Height="Auto"/>  
@@ -19,7 +23,7 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row = "0" HorizontalAlignment="Center">
             <TextBlock 
-                Text = "Вход в ChatSirinity"
+                Text = "Вход"
                 HorizontalAlignment="Center"
                 FontSize="32">
             </TextBlock>    
@@ -69,7 +73,21 @@
                 Visibility="Hidden">
             </Label>
         </Grid>
-        <Grid Grid.Row = "7" HorizontalAlignment="Left">
+        <Grid Grid.Row = "7" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width = "Auto"/>
+                <ColumnDefinition Width = "Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column = "0">
+                <CheckBox IsChecked = "False"></CheckBox>
+            </Grid>
+            <Grid Grid.Column = "1">
+                <Label 
+                    Content = "Запомнить меня"
+                    Padding = "5, 0, 0, 22"></Label>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row = "8" HorizontalAlignment="Left">
             <Button
                 Content="На главную страницу"
                 FontSize="18"
