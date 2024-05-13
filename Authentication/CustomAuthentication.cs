@@ -12,6 +12,8 @@ public class CustomAuthentication
     private bool _isLoginSuccessful;
     private bool _isRegisterSuccessful;
 
+    public static bool IsAuthenticationSuccessful { get; set; }
+
     private bool HandleAuthorizationAnswer(string answer)
     {
         string[] answerParts = answer.Split("\r\n");
@@ -46,6 +48,29 @@ public class CustomAuthentication
         _isLoginSuccessful = GetMessage(TCP.ClientSocket);
     }
 
+    private async Task HandlePing()
+    {
+        byte[] buffer = new byte[1024];
+        while (true)
+        {
+            try
+            {
+                int bytesRead = TCP.ClientSocket.Receive(new ArraySegment<byte>(buffer));
+                string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+                if (message == "PING")
+                {
+                    byte[] pongMessage = Encoding.UTF8.GetBytes("PONG");
+                    await TCP.ClientSocket.SendAsync(pongMessage, SocketFlags.None);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ping error from server: {ex.Message}");
+                break;
+            }
+        }
+    }
+
     private void StartLoginProcess(Frame mainFrame, LoginPage loginWindow)
     {
         TryLoginUser();
@@ -53,6 +78,7 @@ public class CustomAuthentication
         {
             mainFrame.Content = new ListOfChats();
             loginWindow.SetErrorLabelVisibility(Visibility.Collapsed);
+            IsAuthenticationSuccessful = true;
         }
         else
         {

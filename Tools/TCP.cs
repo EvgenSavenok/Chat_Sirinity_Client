@@ -14,6 +14,17 @@ public class TCP
     public static string Password { get; set; }
     public static Socket ClientSocket { get; set; }
     
+    private void StartCommunication()
+    {
+        while (true)
+        {
+            byte[] buffer = new byte[1024];
+            ClientSocket.Receive(buffer);
+            //await HandlePing();
+            //await Task.Run(() => HandlePing());
+        }
+    }
+    
     private void StartConnection(string login, string password, Frame mainFrame, LoginPage? loginWindow, RegisterPage? registerWindow)
     {
         Name = login;
@@ -26,11 +37,18 @@ public class TCP
             ClientSocket.Connect(remoteEndPoint);
             CustomAuthentication authentication = new();
             authentication.DetermineTypeOfAuthentication(mainFrame, loginWindow, registerWindow);
+            if (CustomAuthentication.IsAuthenticationSuccessful)
+                Task.Run(() => StartCommunication());
         }
         catch (Exception e)
         {
             MessageBox.Show("Ошибка подключения к серверу. Попробуйте войти в чат позже. Ошибка: " +
                             e.Message);
+        }
+        finally
+        {
+            ClientSocket.Shutdown(SocketShutdown.Both);
+            ClientSocket.Close();
         }
     }
 
