@@ -56,9 +56,9 @@
         </Grid.Background>
         <Grid Background="{StaticResource BackgroundBrush}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.4*" />
-                <RowDefinition Height="0.8*" />
-                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="0.3*" />
+                <RowDefinition Height="1.7*" />
+                <RowDefinition Height="0.6*" />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" HorizontalAlignment="Center">
                 <TextBlock
@@ -67,11 +67,11 @@
                     FontSize="29"
                     Foreground="#c49a1a"
                     FontFamily="Segoe UI"
-                    Padding="0, 30, 0, 0">
+                    Padding="0, 15, 0, 0">
                 </TextBlock>
             </Grid>
-            <Border Background="White" CornerRadius="10" Padding="10" Width="350"
-                    HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+            <Border Background="White" CornerRadius="10" Padding="10" Width="350" 
+                    Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
                 <StackPanel>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -89,7 +89,8 @@
                             x:Name="LoginTb"
                             FontSize="16"
                             Width="Auto"
-                            Height="24">
+                            Height="24"
+                            KeyDown="RegisterTb_KeyDown">
                         </TextBox>
                     </Grid>
                     <Grid>
@@ -108,7 +109,8 @@
                             x:Name="PasswordTb"
                             FontSize="16"
                             Width="Auto"
-                            Height="24">
+                            Height="24"
+                            KeyDown="RegisterTb_KeyDown">
                         </TextBox>
                     </Grid>
                     <Grid>
@@ -127,7 +129,8 @@
                             x:Name="ConfirmPasswordTb"
                             FontSize="16"
                             Width="Auto"
-                            Height="24">
+                            Height="24"
+                            KeyDown="RegisterTb_KeyDown">
                         </TextBox>
                     </Grid>
                     <Grid>
@@ -143,11 +146,22 @@
                             FontSize="18" />
                         <TextBox
                             Grid.Column="1"
-                            x:Name="EnterEmailTb"
+                            x:Name="EmailTb"
                             FontSize="16"
                             Width="Auto"
-                            Height="24">
+                            Height="24"
+                            KeyDown="RegisterTb_KeyDown">
                         </TextBox>
+                    </Grid>
+                    <Grid>
+                        <Label
+                            x:Name="ErrorRegisterLabel"
+                            Content=""
+                            FontSize="12"
+                            Foreground="Red"
+                            Visibility="Collapsed"
+                            Margin="0, 0, 0, -10">
+                        </Label>
                     </Grid>
                     <Grid>
                         <Button
@@ -164,12 +178,11 @@
             </Border>
             <Grid Grid.Row="2" HorizontalAlignment="Left">
                 <Label
-                    Padding="0, 0, 0, 10"
                     Content="На главную"
                     FontFamily="Segoe UI"
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Center"
-                    Margin="40, 0 , 0, 0"
+                    Margin="40, 0 , 0, 30"
                     FontSize="24"
                     Style="{StaticResource UnderlineLabel}"
                     MouseLeftButtonDown="BackToWelcomePageBtn_Click">

@@ -1,12 +1,17 @@
 ﻿using System.Net.Sockets;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
+using Chat_Sirinity_Client.Pages;
+using Chat_Sirinity_Client.Tools;
 
 namespace Chat_Sirinity_Client.Authentication;
 
 public class CustomAuthentication
 {
-    public static bool IsLoginSuccessful = false;
+    private bool _isLoginSuccessful;
+    private bool _isRegisterSuccessful;
+
     private bool HandleAuthorizationAnswer(string answer)
     {
         string[] answerParts = answer.Split("\r\n");
@@ -16,28 +21,74 @@ public class CustomAuthentication
             return false;
         return false;
     }
-    private void GetMessage(Socket clientSocket)
+
+    private bool GetMessage(Socket clientSocket)
     {
         try
         {
             byte[] buffer = new byte[1024];
             int numOfBytes = clientSocket.Receive(buffer);
             string receivedMessage = Encoding.UTF8.GetString(buffer, 0, numOfBytes);
-            if (HandleAuthorizationAnswer(receivedMessage))
-                IsLoginSuccessful = true;
-            else
-                IsLoginSuccessful = false;
+            return HandleAuthorizationAnswer(receivedMessage);
         }
         catch (Exception)
         {
             Console.WriteLine("Ошибка соединения");
         }
+        return false;
     }
-    public void TryLoginUser(string login, string password, Socket clientSocket)
+
+    private void TryLoginUser()
     {
-        string loginMessage = $"login\r\n{login}\r\n{password}";
+        string loginMessage = $"login\r\n{TCP.Name}\r\n{TCP.Password}";
         byte[] nameBuffer = Encoding.UTF8.GetBytes(loginMessage);
-        clientSocket.Send(nameBuffer);
-        GetMessage(clientSocket);
+        TCP.ClientSocket.Send(nameBuffer);
+        _isLoginSuccessful = GetMessage(TCP.ClientSocket);
+    }
+
+    private void StartLoginProcess(Frame mainFrame, LoginPage loginWindow)
+    {
+        TryLoginUser();
+        if (_isLoginSuccessful)
+        {
+            mainFrame.Content = new ListOfChats();
+            loginWindow.SetErrorLabelVisibility(Visibility.Collapsed);
+        }
+        else
+        {
+            loginWindow.SetErrorLabelVisibility(Visibility.Visible);
+        }
+    }
+
+    private void TryRegisterUser()
+    {
+        string registerMessage = $"register\r\n{TCP.Name}\r\n{TCP.Password}";
+        byte[] nameBuffer = Encoding.UTF8.GetBytes(registerMessage);
+        TCP.ClientSocket.Send(nameBuffer);
+        _isRegisterSuccessful = GetMessage(TCP.ClientSocket);
+    }
+
+    private void StartRegisterProcess(Frame mainFrame, RegisterPage registerWindow)
+    {
+        TryRegisterUser();
+        if (_isRegisterSuccessful)
+        {
+            mainFrame.Content = new LoginPage();
+            registerWindow.SetErrorLabelVisibility(Visibility.Collapsed);
+        }
+        else
+        {
+            registerWindow.SetErrorLabelVisibility(Visibility.Visible);
+            registerWindow.SetErrorLabelContent("Такой пользователь уже существует.");
+        }
+    }
+
+    public void DetermineTypeOfAuthentication(Frame mainFrame, LoginPage? loginWindow,
+        RegisterPage? registerWindow)
+    {
+        if (loginWindow != null)
+            StartLoginProcess(mainFrame, loginWindow!);
+        else
+            StartRegisterProcess(mainFrame, registerWindow!);
     }
 }

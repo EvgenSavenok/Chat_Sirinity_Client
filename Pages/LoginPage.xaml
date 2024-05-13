@@ -97,7 +97,8 @@
                             x:Name="LoginTb"
                             FontSize="16"
                             Width="Auto"
-                            Height="24">
+                            Height="24"
+                            KeyDown="LoginTb_KeyDown">
                         </TextBox>
                     </Grid>
                     <Grid Margin="0, 0, 10, 0">
@@ -117,7 +118,8 @@
                             x:Name="PasswordTb"
                             FontSize="16"
                             Width="Auto"
-                            Height="24">
+                            Height="24"
+                            KeyDown="LoginTb_KeyDown">
                         </TextBox>
                     </Grid>
                     <Grid>

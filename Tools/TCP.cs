@@ -12,28 +12,20 @@ public class TCP
 {
     public static string Name { get; set; }
     public static string Password { get; set; }
-    private void StartConnection(string login, string password, Frame mainFrame, LoginPage loginWindow)
+    public static Socket ClientSocket { get; set; }
+    
+    private void StartConnection(string login, string password, Frame mainFrame, LoginPage? loginWindow, RegisterPage? registerWindow)
     {
         Name = login;
         Password = password;
         IPEndPoint remoteEndPoint;
-        Socket clientSocket;
         try
         {
             remoteEndPoint = new IPEndPoint(IPAddress.Parse(Broadcast.ServerIpAddress), Broadcast.Port);
-            clientSocket = new Socket(remoteEndPoint.Address.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-            clientSocket.Connect(remoteEndPoint);
+            ClientSocket = new Socket(remoteEndPoint.Address.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            ClientSocket.Connect(remoteEndPoint);
             CustomAuthentication authentication = new();
-            authentication.TryLoginUser(Name, Password, clientSocket);
-            if (CustomAuthentication.IsLoginSuccessful)
-            {
-                mainFrame.Content = new ListOfChats();
-                loginWindow.SetErrorLabelVisibility(Visibility.Collapsed);
-            }
-            else
-            {
-                loginWindow.SetErrorLabelVisibility(Visibility.Visible);
-            }
+            authentication.DetermineTypeOfAuthentication(mainFrame, loginWindow, registerWindow);
         }
         catch (Exception e)
         {
@@ -42,8 +34,8 @@ public class TCP
         }
     }
 
-    public void ConnectToChat(string login, string password, Frame mainFrame, LoginPage loginWindow)
+    public void ConnectToChat(string login, string password, Frame mainFrame, LoginPage? loginWindow, RegisterPage? registerWindow)
     { 
-        StartConnection(login, password, mainFrame, loginWindow);
+        StartConnection(login, password, mainFrame, loginWindow, registerWindow);
     }
 }
