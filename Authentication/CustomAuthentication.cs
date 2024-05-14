@@ -35,7 +35,7 @@ public class CustomAuthentication
         }
         catch (Exception)
         {
-            Console.WriteLine("Ошибка соединения");
+            Console.WriteLine("Connection error");
         }
         return false;
     }
@@ -76,7 +76,7 @@ public class CustomAuthentication
         TryLoginUser();
         if (_isLoginSuccessful)
         {
-            mainFrame.Content = new ListOfChats();
+            mainFrame.Content = new ListOfChatsPage();
             loginWindow.SetErrorLabelVisibility(Visibility.Collapsed);
             IsAuthenticationSuccessful = true;
         }

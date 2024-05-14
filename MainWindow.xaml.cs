@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using Chat_Sirinity_Client.Pages;
 using Chat_Sirinity_Client.Tools;
 
 namespace Chat_Sirinity_Client;
@@ -22,7 +23,8 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         MainFrameInstance = MainFrame;
-        MainFrame.Content = new WelcomePage();
+        //MainFrame.Content = new WelcomePage();
+        MainFrame.Content = new ListOfChatsPage();
     }
     protected override void OnSourceInitialized(EventArgs e)
     {

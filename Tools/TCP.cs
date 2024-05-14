@@ -1,10 +1,12 @@
 ﻿using System.Net;
 using System.Net.Sockets;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using Chat_Sirinity_Client.Authentication;
 using Chat_Sirinity_Client.Pages;
 using Chat_Sirinity_Client;
+using Chat_Sirinity_Client.Chats;
 
 namespace Chat_Sirinity_Client.Tools;
 
@@ -13,19 +15,36 @@ public class TCP
     public static string Name { get; set; }
     public static string Password { get; set; }
     public static Socket ClientSocket { get; set; }
-    
-    private void StartCommunication()
+
+    private void GetListOfFriends(int numOfBytes)
     {
-        while (true)
+        byte[] buffer = new byte[20000];
+        string listOfFriends = Encoding.UTF8.GetString(buffer, 0, numOfBytes);
+        if (!listOfFriends.Equals("PING"))
         {
-            byte[] buffer = new byte[1024];
-            ClientSocket.Receive(buffer);
-            //await HandlePing();
-            //await Task.Run(() => HandlePing());
+            ChatsInfo.ListOfFriends = listOfFriends.Split(" ");
         }
     }
-    
-    private void StartConnection(string login, string password, Frame mainFrame, LoginPage? loginWindow, RegisterPage? registerWindow)
+
+    private void StartCommunication()
+    {
+        byte[] byteMessage = Encoding.UTF8.GetBytes("chats\r\ndisplay");
+        ClientSocket.Send(byteMessage);
+        byte[] buffer = new byte[1024];
+        int numOfBytes;
+        try
+        {
+            numOfBytes = ClientSocket.Receive(buffer);
+        }
+        catch (Exception)
+        {
+            return;
+        }
+        GetListOfFriends(numOfBytes);
+    }
+
+    private void StartConnection(string login, string password, Frame mainFrame, LoginPage? loginWindow,
+        RegisterPage? registerWindow)
     {
         Name = login;
         Password = password;
@@ -42,18 +61,14 @@ public class TCP
         }
         catch (Exception e)
         {
-            MessageBox.Show("Ошибка подключения к серверу. Попробуйте войти в чат позже. Ошибка: " +
+            MessageBox.Show("Server connection error. Try to entrance later. Error: " +
                             e.Message);
-        }
-        finally
-        {
-            ClientSocket.Shutdown(SocketShutdown.Both);
-            ClientSocket.Close();
         }
     }
 
-    public void ConnectToChat(string login, string password, Frame mainFrame, LoginPage? loginWindow, RegisterPage? registerWindow)
-    { 
+    public void ConnectToChat(string login, string password, Frame mainFrame, LoginPage? loginWindow,
+        RegisterPage? registerWindow)
+    {
         StartConnection(login, password, mainFrame, loginWindow, registerWindow);
     }
 }
