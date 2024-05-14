@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:Chat_Sirinity_Client.Pages"
+             xmlns:local="clr-namespace:Chat_Sirinity_Client.Chats.Design"
+             xmlns:convertor="clr-namespace:Chat_Sirinity_Client.Convertors"
              mc:Ignorable="d"
              d:DesignHeight="60" d:DesignWidth="300">
 
-    <Grid>
+    <Grid DataContext="{x:Static local:ChatListItemDesignModel.DesignInstance}">
         <Grid.ColumnDefinitions>
             <!-- New message indicator bar -->
             <ColumnDefinition Width="Auto" />
@@ -20,10 +21,10 @@
         <Border Grid.Column="0" Background="Red" Width="3"></Border>
 
         <Border Grid.Column="1" Padding="8">
-            <Border Background="Blue"
+            <Border Background="{Binding ProfilePictureRGB, Converter={convertor:StringRGBToBrushConverter}}"
                     Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
                     CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource Self}}">
-                <TextBlock Text="LM"
+                <TextBlock Text="{Binding Initial}"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            Foreground="White"
@@ -34,12 +35,12 @@
         <Border Grid.Column="2">
             <StackPanel VerticalAlignment="Center">
                 <!-- Name -->
-                <TextBlock Text="Luke"
-                           Foreground="Blue"
+                <TextBlock Text="{Binding Name}"
+                           Foreground="{Binding ProfilePictureRGB, Converter={convertor:StringRGBToBrushConverter}}"
                            FontSize="18">
                 </TextBlock>
                 <!-- Message -->
-                <TextBlock Text="This chat is amazing!"
+                <TextBlock Text="{Binding Message}"
                            TextTrimming="CharacterEllipsis"
                            FontSize="14">
                 </TextBlock>
