@@ -39,6 +39,20 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style TargetType="TextBox" x:Key="RoundedTextBoxStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="5">
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Page.Resources>
     <Grid>
         <Grid.Background>
@@ -88,12 +102,21 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <!-- Search line -->
-                        <StackPanel Grid.Row="0"
-                                    Orientation="Vertical">
-                        </StackPanel>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="0.1*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBox Margin="12, 0, 0, 0"
+                                     Style="{StaticResource RoundedTextBoxStyle}"
+                                     Height="25"
+                                     FontSize="18">
+                            </TextBox>
+                        </Grid>
                         <!-- Chats -->
                         <StackPanel Grid.Row="1"
                                     Orientation="Vertical">
+                           <local:SideMenuControl Height="60"/>
                         </StackPanel>
                     </Grid>
                 </Grid>
