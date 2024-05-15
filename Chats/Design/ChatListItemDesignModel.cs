@@ -14,7 +14,7 @@ public class ChatListItemDesignModel : ChatListItemViewModel
 
     public ChatListItemDesignModel()
     {
-        Initial = "LM";
+        Initial = "L";
         Name = "Luke";
         Message = "This chat is amazing!";
         ProfilePictureRGB = "3099c5";

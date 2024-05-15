@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Chat_Sirinity_Client.Pages"
+      xmlns:controls="clr-namespace:Chat_Sirinity_Client.Controls"
       mc:Ignorable="d"
       Title="ListOfChats" Height="450" Width="800">
     <Page.Resources>
@@ -39,20 +40,6 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <Style TargetType="TextBox" x:Key="RoundedTextBoxStyle">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TextBox">
-                        <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="5">
-                            <ScrollViewer x:Name="PART_ContentHost" />
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
     </Page.Resources>
     <Grid>
         <Grid.Background>
@@ -64,9 +51,6 @@
         </Grid.ColumnDefinitions>
         <Border Grid.Column="0">
             <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.2*" />
@@ -97,28 +81,11 @@
 
                     <!-- List of chats -->
                     <Grid Grid.Column="1" Background="White">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="0.1*" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <!-- Search line -->
-                        <Grid Grid.Row="0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="2*" />
-                                <ColumnDefinition Width="0.1*" />
-                            </Grid.ColumnDefinitions>
-                            <TextBox Margin="12, 0, 0, 0"
-                                     Style="{StaticResource RoundedTextBoxStyle}"
-                                     Height="25"
-                                     FontSize="18">
-                            </TextBox>
-                        </Grid>
-                        <!-- Chats -->
-                        <StackPanel Grid.Row="1"
-                                    Orientation="Vertical">
-                           <local:SideMenuControl Height="60"/>
-                        </StackPanel>
+                        <local:SideMenuControl VerticalAlignment="Top">
+                            <controls:ChatListControl />
+                        </local:SideMenuControl>
                     </Grid>
+
                 </Grid>
             </Grid>
         </Border>
