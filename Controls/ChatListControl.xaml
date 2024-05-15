@@ -7,7 +7,7 @@
              xmlns:pages="clr-namespace:Chat_Sirinity_Client.Pages"
              xmlns:design="clr-namespace:Chat_Sirinity_Client.Chats.Design"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="450" d:DesignWidth="300">
     
     <Grid DataContext="{x:Static design:ChatListDesignModel.DesignInstance}">
         <ScrollViewer VerticalScrollBarVisibility="Auto">

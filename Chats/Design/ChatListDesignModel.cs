@@ -21,7 +21,92 @@ public class ChatListDesignModel : ChatListViewModel
                 Name = "Luke",
                 Initial = "L",
                 Message = "This chat is amazing!",
+                ProfilePictureRGB = "3099c5",
+                IsSelected = true
+            },
+            new ChatListItemViewModel
+            {
+                Name = "Jessie",
+                Initial = "J",
+                Message = "Hey, dude!",
+                ProfilePictureRGB = "fe4503"
+            },
+            new ChatListItemViewModel
+            {
+                Name = "Luke",
+                Initial = "L",
+                Message = "This chat is amazing!",
                 ProfilePictureRGB = "3099c5"
+            },
+            new ChatListItemViewModel
+            {
+                Name = "Eugesha",
+                Initial = "E",
+                Message = "Hi!",
+                ProfilePictureRGB = "00d405"
+            },
+            new ChatListItemViewModel
+            {
+                Name = "Jessie",
+                Initial = "J",
+                Message = "Hey, dude!",
+                ProfilePictureRGB = "fe4503"
+            },
+            new ChatListItemViewModel
+            {
+                Name = "Luke",
+                Initial = "L",
+                Message = "This chat is amazing!",
+                ProfilePictureRGB = "3099c5"
+            },
+            new ChatListItemViewModel
+            {
+                Name = "Jessie",
+                Initial = "J",
+                Message = "Hey, dude!",
+                ProfilePictureRGB = "fe4503"
+            },
+            new ChatListItemViewModel
+            {
+                Name = "Eugesha",
+                Initial = "E",
+                Message = "Hi!",
+                ProfilePictureRGB = "00d405"
+            },
+            new ChatListItemViewModel
+            {
+                Name = "Luke",
+                Initial = "L",
+                Message = "This chat is amazing!",
+                ProfilePictureRGB = "3099c5"
+            },
+            new ChatListItemViewModel
+            {
+                Name = "Eugesha",
+                Initial = "E",
+                Message = "Hi!",
+                ProfilePictureRGB = "00d405"
+            },
+            new ChatListItemViewModel
+            {
+                Name = "Jessie",
+                Initial = "J",
+                Message = "Hey, dude!",
+                ProfilePictureRGB = "fe4503"
+            },
+            new ChatListItemViewModel
+            {
+                Name = "Luke",
+                Initial = "L",
+                Message = "This chat is amazing!",
+                ProfilePictureRGB = "3099c5"
+            },
+            new ChatListItemViewModel
+            {
+                Name = "Eugesha",
+                Initial = "E",
+                Message = "Hi!",
+                ProfilePictureRGB = "00d405"
             },
             new ChatListItemViewModel
             {

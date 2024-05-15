@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Chat_Sirinity_Client.Chats.Design"
              xmlns:convertor="clr-namespace:Chat_Sirinity_Client.Convertors"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="450" d:DesignWidth="300">
 
     <UserControl.Resources>
         <Style TargetType="TextBox" x:Key="RoundedTextBoxStyle">
@@ -31,9 +31,9 @@
             <Border Background="White">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="0.4*" />
+                        <RowDefinition Height="1.3*" />
                         <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
+                        <RowDefinition Height="10*" />
                     </Grid.RowDefinitions>
                     <!-- Search line -->
                     <Grid Grid.Row="0">
@@ -54,7 +54,7 @@
                         <!-- <controls:ChatListControl Height="60"/> -->
                     </StackPanel>
 
-                    <ContentPresenter Grid.Row="2" />
+                    <ContentPresenter Grid.Row="2"/>
 
                 </Grid>
             </Border>

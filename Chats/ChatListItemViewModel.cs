@@ -11,4 +11,7 @@ public class ChatListItemViewModel
     public string Initial { get; set; }
     
     public string ProfilePictureRGB { get; set; }
+    
+    public bool IsSelected { get; set; }
+    
 }
