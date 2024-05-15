@@ -11,7 +11,7 @@ public class ChatListItemDesignModel : ChatListItemViewModel
     #endregion
 
     #region Constructor
-
+    
     public ChatListItemDesignModel()
     {
         Initial = "L";
@@ -19,6 +19,6 @@ public class ChatListItemDesignModel : ChatListItemViewModel
         Message = "This chat is amazing!";
         ProfilePictureRGB = "3099c5";
     }
-
+    
     #endregion
 }
