@@ -89,5 +89,8 @@
                 </Grid>
             </Grid>
         </Border>
+        <Border Grid.Column="1">
+            <controls:ChatMessageListControl/>
+        </Border>
     </Grid>
 </Page>

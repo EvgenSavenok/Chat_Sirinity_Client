@@ -12,117 +12,34 @@ public class ChatListDesignModel : ChatListViewModel
 
     #region Constructor
 
+    private void CreateChats()
+    {
+        Items = new List<ChatListItemViewModel>();
+        if (ChatsInfo.ListOfFriends != null)
+        {
+            for (int i = 0; i < ChatsInfo.ListOfFriends.Length - 1; i++)
+            {
+                string name = ChatsInfo.ListOfFriends[i];
+                string avatarColor = ChatsInfo.ListOfColors[i];
+
+                ChatListItemViewModel friend = new ChatListItemViewModel
+                {
+                    Name = name,
+                    Initial = name.Substring(0, 1),
+                    Message = "Привет!",
+                    ProfilePictureRGB = avatarColor,
+                    IsSelected = false
+                };
+                Items.Add(friend);
+            }
+            //delete this later
+            Items[0].IsSelected = true;
+        }
+    }
+
     public ChatListDesignModel()
     {
-        Items = new List<ChatListItemViewModel>
-        {
-            new ChatListItemViewModel
-            {
-                Name = "Luke",
-                Initial = "L",
-                Message = "This chat is amazing!",
-                ProfilePictureRGB = "3099c5",
-                IsSelected = true
-            },
-            new ChatListItemViewModel
-            {
-                Name = "Jessie",
-                Initial = "J",
-                Message = "Hey, dude!",
-                ProfilePictureRGB = "fe4503"
-            },
-            new ChatListItemViewModel
-            {
-                Name = "Luke",
-                Initial = "L",
-                Message = "This chat is amazing!",
-                ProfilePictureRGB = "3099c5"
-            },
-            new ChatListItemViewModel
-            {
-                Name = "Eugesha",
-                Initial = "E",
-                Message = "Hi!",
-                ProfilePictureRGB = "00d405"
-            },
-            new ChatListItemViewModel
-            {
-                Name = "Jessie",
-                Initial = "J",
-                Message = "Hey, dude!",
-                ProfilePictureRGB = "fe4503"
-            },
-            new ChatListItemViewModel
-            {
-                Name = "Luke",
-                Initial = "L",
-                Message = "This chat is amazing!",
-                ProfilePictureRGB = "3099c5"
-            },
-            new ChatListItemViewModel
-            {
-                Name = "Jessie",
-                Initial = "J",
-                Message = "Hey, dude!",
-                ProfilePictureRGB = "fe4503"
-            },
-            new ChatListItemViewModel
-            {
-                Name = "Eugesha",
-                Initial = "E",
-                Message = "Hi!",
-                ProfilePictureRGB = "00d405"
-            },
-            new ChatListItemViewModel
-            {
-                Name = "Luke",
-                Initial = "L",
-                Message = "This chat is amazing!",
-                ProfilePictureRGB = "3099c5"
-            },
-            new ChatListItemViewModel
-            {
-                Name = "Eugesha",
-                Initial = "E",
-                Message = "Hi!",
-                ProfilePictureRGB = "00d405"
-            },
-            new ChatListItemViewModel
-            {
-                Name = "Jessie",
-                Initial = "J",
-                Message = "Hey, dude!",
-                ProfilePictureRGB = "fe4503"
-            },
-            new ChatListItemViewModel
-            {
-                Name = "Luke",
-                Initial = "L",
-                Message = "This chat is amazing!",
-                ProfilePictureRGB = "3099c5"
-            },
-            new ChatListItemViewModel
-            {
-                Name = "Eugesha",
-                Initial = "E",
-                Message = "Hi!",
-                ProfilePictureRGB = "00d405"
-            },
-            new ChatListItemViewModel
-            {
-                Name = "Jessie",
-                Initial = "J",
-                Message = "Hey, dude!",
-                ProfilePictureRGB = "fe4503"
-            },
-            new ChatListItemViewModel
-            {
-                Name = "Eugesha",
-                Initial = "E",
-                Message = "Hi!",
-                ProfilePictureRGB = "00d405"
-            }
-        };
+        CreateChats();
     }
 
     #endregion

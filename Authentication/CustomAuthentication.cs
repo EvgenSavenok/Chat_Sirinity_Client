@@ -2,6 +2,7 @@
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using Chat_Sirinity_Client.Chats.Design;
 using Chat_Sirinity_Client.Pages;
 using Chat_Sirinity_Client.Tools;
 
@@ -76,7 +77,6 @@ public class CustomAuthentication
         TryLoginUser();
         if (_isLoginSuccessful)
         {
-            mainFrame.Content = new ListOfChatsPage();
             loginWindow.SetErrorLabelVisibility(Visibility.Collapsed);
             IsAuthenticationSuccessful = true;
         }

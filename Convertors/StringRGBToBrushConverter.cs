@@ -3,7 +3,7 @@ using System.Windows.Media;
 
 namespace Chat_Sirinity_Client.Convertors;
 
-public class StringRGBToBrushConverter : BaseValueConvertor<StringRGBToBrushConverter>
+public class StringRGBToBrushConverter : BaseValueConverter<StringRGBToBrushConverter>
 {
     public override object Convert(object value, Type targerType, object parameter, CultureInfo culture)
     {

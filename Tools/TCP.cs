@@ -7,6 +7,7 @@ using Chat_Sirinity_Client.Authentication;
 using Chat_Sirinity_Client.Pages;
 using Chat_Sirinity_Client;
 using Chat_Sirinity_Client.Chats;
+using Chat_Sirinity_Client.Chats.Design;
 
 namespace Chat_Sirinity_Client.Tools;
 
@@ -16,31 +17,29 @@ public class TCP
     public static string Password { get; set; }
     public static Socket ClientSocket { get; set; }
 
-    private void GetListOfFriends(int numOfBytes)
+    private void SetListOfFriends()
     {
         byte[] buffer = new byte[20000];
-        string listOfFriends = Encoding.UTF8.GetString(buffer, 0, numOfBytes);
-        if (!listOfFriends.Equals("PING"))
-        {
-            ChatsInfo.ListOfFriends = listOfFriends.Split(" ");
-        }
+        ClientSocket.Receive(buffer);
+        string list = Encoding.UTF8.GetString(buffer, 0, buffer.Length);
+        ChatsInfo.ListOfFriends = list.Split(" ");
+    }
+    
+    private void SetListOfColors()
+    {
+        byte[] buffer = new byte[20000];
+        ClientSocket.Receive(buffer);
+        string list = Encoding.UTF8.GetString(buffer, 0, buffer.Length);
+        ChatsInfo.ListOfColors = list.Split(" ");
     }
 
-    private void StartCommunication()
+    private void StartCommunication(Frame mainFrame)
     {
         byte[] byteMessage = Encoding.UTF8.GetBytes("chats\r\ndisplay");
         ClientSocket.Send(byteMessage);
-        byte[] buffer = new byte[1024];
-        int numOfBytes;
-        try
-        {
-            numOfBytes = ClientSocket.Receive(buffer);
-        }
-        catch (Exception)
-        {
-            return;
-        }
-        GetListOfFriends(numOfBytes);
+        SetListOfFriends();
+        SetListOfColors();
+        mainFrame.Content = new ListOfChatsPage();
     }
 
     private void StartConnection(string login, string password, Frame mainFrame, LoginPage? loginWindow,
@@ -57,7 +56,9 @@ public class TCP
             CustomAuthentication authentication = new();
             authentication.DetermineTypeOfAuthentication(mainFrame, loginWindow, registerWindow);
             if (CustomAuthentication.IsAuthenticationSuccessful)
-                Task.Run(() => StartCommunication());
+            {
+                StartCommunication(mainFrame);
+            }
         }
         catch (Exception e)
         {
