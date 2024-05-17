@@ -20,7 +20,7 @@
                     CornerRadius="{Binding ActualWidth, RelativeSource={RelativeSource Self}}"
                     Height="{Binding ActualWidth, RelativeSource={RelativeSource Self}}"
                     Width="35"
-                    Background="{Binding ProfilePictureRGB}"
+                    Background="{Binding ProfilePictureRGB, Converter={converter:StringRGBToBrushConverter}}"
                     BorderBrush="White"
                     BorderThickness="1">
                     <TextBlock Text="{Binding Initial}"
@@ -30,7 +30,7 @@
                                FontSize="15" />
                 </Border>
             </Grid>
-            <Grid Margin="40 0 0 0 ">
+            <Grid Margin="40 0 10 0 ">
                 <!-- Speech bubble rectangle -->
                 <Border CornerRadius="10"
                         Background="{Binding SentByMe, Converter={converter:SentByMeToBackgroundConverter}}"
@@ -38,7 +38,7 @@
                         HorizontalAlignment="{Binding SentByMe, Converter={converter:SentByMeToAlignmentConverter}}">  <!-- To set width according to message length -->
                     <TextBlock VerticalAlignment="Center"
                                TextWrapping="Wrap"
-                               Foreground="SkyBlue"
+                               Foreground="Black"
                                FontSize="12"
                                Text="{Binding Message}" />
                 </Border>

@@ -23,14 +23,22 @@ public class ChatMessageListDesignModel : ChatMessageListViewModel
                 Message = "Hello",
                 Initial = "L",
                 SentByMe = false,
-                ProfilePictureRGB = "16c432"
+                ProfilePictureRGB = "3099c5"
             },
             new ChatMessageListItemViewModel()
             {
                 SenderName = "Eugen",
                 Initial = "E",
-                Message = "Hello\r\nLera",
+                Message = "Hello, Lera",
                 SentByMe = true,
+                ProfilePictureRGB = "16c432"
+            },
+            new ChatMessageListItemViewModel()
+            {
+                SenderName = "Lera",
+                Message = "How are u?",
+                Initial = "L",
+                SentByMe = false,
                 ProfilePictureRGB = "3099c5"
             }
         };

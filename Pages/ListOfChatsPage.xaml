@@ -81,16 +81,18 @@
 
                     <!-- List of chats -->
                     <Grid Grid.Column="1" Background="White">
-                        <local:SideMenuControl VerticalAlignment="Top">
-                            <controls:ChatListControl />
-                        </local:SideMenuControl>
+                        <Border BorderBrush="Gray" BorderThickness="0 0 0.2 0">
+                            <local:SideMenuControl>
+                                <controls:ChatListControl />
+                            </local:SideMenuControl>
+                        </Border>
                     </Grid>
 
                 </Grid>
             </Grid>
         </Border>
         <Border Grid.Column="1">
-            <controls:ChatMessageListControl/>
+            <controls:ChatMessageListControl />
         </Border>
     </Grid>
 </Page>

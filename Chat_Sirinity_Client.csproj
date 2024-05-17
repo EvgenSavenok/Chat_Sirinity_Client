@@ -65,6 +65,9 @@
       <None Remove="Images\SidePanelIcons\profile.png" />
       <Resource Include="Images\SidePanelIcons\profile.png" />
       <Resource Include="Images\SidePanelIcons\settings.png" />
+      <None Remove="Images\TatleBarIcons\Ionic-Ionicons-Search-circle.48.png" />
+      <None Remove="Images\TatleBarIcons\SearchIcon.png" />
+      <Resource Include="Images\TatleBarIcons\SearchIcon.png" />
     </ItemGroup>
 
 </Project>

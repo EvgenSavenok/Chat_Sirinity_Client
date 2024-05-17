@@ -23,8 +23,8 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         MainFrameInstance = MainFrame;
-        MainFrame.Content = new WelcomePage();
-        //MainFrame.Content = new ListOfChatsPage();
+        //MainFrame.Content = new WelcomePage();
+        MainFrame.Content = new ListOfChatsPage();
     }
     protected override void OnSourceInitialized(EventArgs e)
     {

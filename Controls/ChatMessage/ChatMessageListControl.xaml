@@ -9,18 +9,57 @@
              xmlns:messageDesign="clr-namespace:Chat_Sirinity_Client.Chats.InputChatMessage.MessageDesign"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="300">
-    
-    <Grid DataContext="{x:Static messageDesign:ChatMessageListDesignModel.DesignInstance}"
-          VerticalAlignment="Bottom">
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <ItemsControl ItemsSource="{Binding Items}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <local:ChatMessageListItemControl />
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </ScrollViewer>
+    <!-- <UserControl.Resources> -->
+    <!--     <ResourceDictionary Source="BtnStyles.xaml" /> -->
+    <!-- </UserControl.Resources> -->
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <!-- Title bar -->
+            <RowDefinition Height="Auto" />
+            <!-- Chat list -->
+            <RowDefinition Height="*" />
+            <!-- Message send text box -->
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Title bar -->
+        <Grid Grid.Row="0" Background="White" Height="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Lera"
+                       Foreground="Black"
+                       FontSize="14"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" />
+            <StackPanel Grid.Column="1"
+                        Orientation="Horizontal"
+                        Margin="0 0 5 0">
+                <Button Style="{StaticResource TitleBarBtnStyle}">
+                    <Image Source="/Images/TatleBarIcons/SearchIcon.png"></Image>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <!-- Chat list -->
+        <Grid Grid.Row="1" DataContext="{x:Static messageDesign:ChatMessageListDesignModel.DesignInstance}">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ItemsControl ItemsSource="{Binding Items}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local:ChatMessageListItemControl />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+        
+        <Grid Grid.Row="2" Height="50"
+              Background="White">
+            
+        </Grid>
+
     </Grid>
-    
+
 </UserControl>

@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:Chat_Sirinity_Client"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Convertors/Colors.xaml" />
+                <ResourceDictionary Source="/Controls/ChatMessage/BtnStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
