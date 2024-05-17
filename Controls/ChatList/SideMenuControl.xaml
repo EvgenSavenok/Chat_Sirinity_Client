@@ -31,9 +31,8 @@
             <Border Background="White">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="1.3*" />
+                        <RowDefinition Height="0.14*" />
                         <RowDefinition Height="*" />
-                        <RowDefinition Height="10*" />
                     </Grid.RowDefinitions>
                     <!-- Search line -->
                     <Grid Grid.Row="0">
@@ -48,13 +47,13 @@
                         </TextBox>
                     </Grid>
                     <!-- Chats -->
-                    <StackPanel Grid.Row="1"
-                                Orientation="Vertical">
+                    <!-- <StackPanel Grid.Row="1" -->
+                    <!--             Orientation="Vertical"> -->
+                    <!-- -->
+                    <!--     ~1~ <controls:ChatListControl Height="60"/> @1@ -->
+                    <!-- </StackPanel> -->
 
-                        <!-- <controls:ChatListControl Height="60"/> -->
-                    </StackPanel>
-
-                    <ContentPresenter Grid.Row="2"/>
+                    <ContentPresenter Grid.Row="1"/>
 
                 </Grid>
             </Border>
