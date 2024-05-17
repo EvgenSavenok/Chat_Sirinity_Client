@@ -8,7 +8,6 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Convertors/Colors.xaml" />
                 <ResourceDictionary Source="/Controls/ChatMessage/Styles/BtnStyles.xaml" />
-                <ResourceDictionary Source="/Controls/ChatMessage/Styles/Scroll.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

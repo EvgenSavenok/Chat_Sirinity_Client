@@ -19,6 +19,12 @@
                     <ControlTemplate TargetType="{x:Type ContentControl}">
 
                         <Border x:Name="background" Background="White">
+                            
+                            <Border.InputBindings>
+                                <MouseBinding MouseAction="LeftClick"
+                                              Command="{Binding OpenMessageCommand}" />
+                            </Border.InputBindings>
+                            
                             <Grid x:Name="container" Background="Transparent">
                                 <Grid.ColumnDefinitions>
                                     <!-- Profile picture -->

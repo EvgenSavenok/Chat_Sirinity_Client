@@ -31,9 +31,12 @@
             <Border Background="White">
                 <Grid>
                     <Grid.RowDefinitions>
+                        <!-- Search line -->
                         <RowDefinition Height="0.14*" />
+                        <!-- Chat list -->
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
+                    
                     <!-- Search line -->
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
@@ -46,13 +49,8 @@
                                  Style="{StaticResource RoundedTextBoxStyle}">
                         </TextBox>
                     </Grid>
-                    <!-- Chats -->
-                    <!-- <StackPanel Grid.Row="1" -->
-                    <!--             Orientation="Vertical"> -->
-                    <!-- -->
-                    <!--     ~1~ <controls:ChatListControl Height="60"/> @1@ -->
-                    <!-- </StackPanel> -->
-
+                    
+                    <!-- Chat list -->
                     <ContentPresenter Grid.Row="1"/>
 
                 </Grid>

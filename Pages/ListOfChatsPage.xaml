@@ -91,8 +91,9 @@
                 </Grid>
             </Grid>
         </Border>
-        <Border Grid.Column="1">
-            <controls:ChatMessageListControl />
-        </Border>
+        <Frame Grid.Column="1" x:Name="MainChatFrame"/>
+        <!-- <Border Grid.Column="1"> -->
+        <!--     <controls:ChatMessageListControl /> -->
+        <!-- </Border> -->
     </Grid>
 </Page>

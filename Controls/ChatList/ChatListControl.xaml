@@ -8,17 +8,17 @@
              xmlns:design="clr-namespace:Chat_Sirinity_Client.Chats.Design"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="300">
-    
+
     <Grid DataContext="{x:Static design:ChatListDesignModel.DesignInstance}">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <ItemsControl ItemsSource="{Binding Items}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <local:ChatListItemControl/>
+                        <local:ChatListItemControl />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
     </Grid>
-    
+
 </UserControl>

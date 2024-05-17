@@ -27,7 +27,6 @@ C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\Pages
 C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\Pages\ListOfChatsPage.g.cs
 C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\Pages\ListOfChatsPage.baml
 C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\Chat_Sirinity_Client_MarkupCompile.lref
-C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\CustomStyles\Styles.baml
 C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\Controls\ChatMessage\ChatMessageListControl.g.cs
 C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\Controls\ChatMessage\ChatMessageListItemControl.g.cs
@@ -42,4 +41,6 @@ C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\Contr
 C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\Convertors\Colors.baml
 C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\App.baml
 C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\Controls\ChatMessage\Styles\BtnStyles.baml
-C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\Controls\ChatMessage\Styles\Scroll.baml
+C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\bin\Debug\net8.0-windows\Ninject.dll
+C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\Chat_Sirinity_Client.csproj.AssemblyReference.cache
+C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\Chat_Sir.87256560.Up2Date

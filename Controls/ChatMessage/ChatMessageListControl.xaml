@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:Chat_Sirinity_Client.Controls"
              xmlns:pages="clr-namespace:Chat_Sirinity_Client.Pages"
              xmlns:design="clr-namespace:Chat_Sirinity_Client.Chats.Design"
+             xmlns:message="clr-namespace:Chat_Sirinity_Client.Chats.InputChatMessage"
              xmlns:messageDesign="clr-namespace:Chat_Sirinity_Client.Chats.InputChatMessage.MessageDesign"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="300">
@@ -73,7 +74,7 @@
                     Style="{StaticResource TitleBarBtnStyle}">
                 <Image Source="/Images/TextBoxIcons/PaperclipIcon.png"></Image>
             </Button>
-            
+
             <!-- Text box -->
             <TextBox Grid.Column="1"
                      Padding="0 0 0 7"
@@ -82,8 +83,8 @@
                      BorderThickness="0"
                      AcceptsReturn="True"
                      AcceptsTab="True"
-                     VerticalAlignment="Center"/>
-            
+                     VerticalAlignment="Center" />
+
             <!-- Additional buttons -->
             <StackPanel Grid.Column="2"
                         Orientation="Horizontal">
@@ -95,8 +96,9 @@
                 </Button>
                 <!--Send button -->
                 <Button Style="{StaticResource TitleBarBtnStyle}"
-                        Margin="0 0 5 0 ">
-                    <Image Source="/Images/TextBoxIcons/SendIcon.png"></Image>
+                        Margin="0 0 5 0 "
+                        Command="{Binding SendCommand}">
+                        <Image Source="/Images/TextBoxIcons/SendIcon.png"></Image>
                 </Button>
             </StackPanel>
 
