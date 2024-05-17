@@ -54,10 +54,52 @@
                 </ItemsControl>
             </ScrollViewer>
         </Grid>
-        
-        <Grid Grid.Row="2" Height="50"
+
+        <Grid Grid.Row="2" Height="70"
               Background="White">
+
+            <Grid.ColumnDefinitions>
+                <!-- Attach button -->
+                <ColumnDefinition Width="Auto" />
+                <!-- Text box -->
+                <ColumnDefinition Width="*" />
+                <!-- Additional buttons -->
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Attach button -->
+            <Button Margin="3 0 0 5"
+                    Height="{Binding Height, RelativeSource={RelativeSource AncestorType=Grid}}"
+                    Style="{StaticResource TitleBarBtnStyle}">
+                <Image Source="/Images/TextBoxIcons/PaperclipIcon.png"></Image>
+            </Button>
             
+            <!-- Text box -->
+            <TextBox Grid.Column="1"
+                     Padding="0 0 0 7"
+                     Tag="Царапать здесь..."
+                     FontSize="16"
+                     BorderThickness="0"
+                     AcceptsReturn="True"
+                     AcceptsTab="True"
+                     VerticalAlignment="Center"/>
+            
+            <!-- Additional buttons -->
+            <StackPanel Grid.Column="2"
+                        Orientation="Horizontal">
+                <!-- Smile button -->
+                <Button Margin="0 0 5 0"
+                        Height="{Binding Height, RelativeSource={RelativeSource AncestorType=Grid}}"
+                        Style="{StaticResource TitleBarBtnStyle}">
+                    <Image Source="/Images/TextBoxIcons/SmileIcon2.png"></Image>
+                </Button>
+                <!--Send button -->
+                <Button Style="{StaticResource TitleBarBtnStyle}"
+                        Margin="0 0 5 0 ">
+                    <Image Source="/Images/TextBoxIcons/SendIcon.png"></Image>
+                </Button>
+            </StackPanel>
+
         </Grid>
 
     </Grid>

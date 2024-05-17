@@ -54,6 +54,11 @@
         <XamlRuntime>Wpf</XamlRuntime>
         <SubType>Designer</SubType>
       </Page>
+      <Page Update="Controls\ChatMessage\Styles\BtnStyles.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
     </ItemGroup>
 
     <ItemGroup>
@@ -68,6 +73,14 @@
       <None Remove="Images\TatleBarIcons\Ionic-Ionicons-Search-circle.48.png" />
       <None Remove="Images\TatleBarIcons\SearchIcon.png" />
       <Resource Include="Images\TatleBarIcons\SearchIcon.png" />
+      <None Remove="Images\TextBoxIcons\PaperclipIcon2.png" />
+      <None Remove="Images\TextBoxIcons\Smile2.png" />
+      <None Remove="Images\TextBoxIcons\SendIcon.png" />
+      <Resource Include="Images\TextBoxIcons\SendIcon.png" />
+      <None Remove="Images\TextBoxIcons\SmileIcon.png" />
+      <Resource Include="Images\TextBoxIcons\SmileIcon2.png" />
+      <None Remove="Images\TextBoxIcons\PaperclipIcon.png" />
+      <Resource Include="Images\TextBoxIcons\PaperclipIcon.png" />
     </ItemGroup>
 
 </Project>

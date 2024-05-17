@@ -7,7 +7,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Convertors/Colors.xaml" />
-                <ResourceDictionary Source="/Controls/ChatMessage/BtnStyles.xaml" />
+                <ResourceDictionary Source="/Controls/ChatMessage/Styles/BtnStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
