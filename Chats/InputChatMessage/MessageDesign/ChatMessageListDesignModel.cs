@@ -1,4 +1,5 @@
-﻿using System.Windows.Media;
+﻿using System.Collections.ObjectModel;
+using System.Windows.Media;
 using Chat_Sirinity_Client.Chats;
 
 namespace Chat_Sirinity_Client.Chats.InputChatMessage.MessageDesign;
@@ -15,12 +16,12 @@ public class ChatMessageListDesignModel : ChatMessageListViewModel
 
     private void CreateChats()
     {
-        Items = new List<ChatMessageListItemViewModel>()
+        Items = new ObservableCollection<ChatMessageListItemViewModel>()
         {
             new ChatMessageListItemViewModel()
             {
                 SenderName = "Lera",
-                Message = "Hello",
+                Message = "Йоу",
                 Initial = "L",
                 SentByMe = false,
                 ProfilePictureRGB = "3099c5"
@@ -29,14 +30,14 @@ public class ChatMessageListDesignModel : ChatMessageListViewModel
             {
                 SenderName = "Eugen",
                 Initial = "E",
-                Message = "Hello, Lera",
+                Message = "Привет",
                 SentByMe = true,
                 ProfilePictureRGB = "16c432"
             },
             new ChatMessageListItemViewModel()
             {
                 SenderName = "Lera",
-                Message = "How are u?",
+                Message = "Как дела?",
                 Initial = "L",
                 SentByMe = false,
                 ProfilePictureRGB = "3099c5"

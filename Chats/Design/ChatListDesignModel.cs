@@ -21,19 +21,19 @@ public class ChatListDesignModel : ChatListViewModel
             {
                 string name = ChatsInfo.ListOfFriends[i];
                 string avatarColor = ChatsInfo.ListOfColors[i];
-
-                ChatListItemViewModel friend = new ChatListItemViewModel
+                if (name != "" && avatarColor != "")
                 {
-                    Name = name,
-                    Initial = name.Substring(0, 1),
-                    Message = "Привет!",
-                    ProfilePictureRGB = avatarColor,
-                    IsSelected = false
-                };
-                Items.Add(friend);
+                    ChatListItemViewModel friend = new ChatListItemViewModel
+                    {
+                        Name = name,
+                        Initial = name.Substring(0, 1),
+                        Message = "Привет!",
+                        ProfilePictureRGB = avatarColor,
+                        IsSelected = false
+                    };
+                    Items.Add(friend);
+                }
             }
-            //delete this later
-            Items[0].IsSelected = true;
         }
     }
 

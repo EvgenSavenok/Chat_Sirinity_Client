@@ -14,7 +14,7 @@ public partial class MainWindow : Window
     
     private void LoadIcon()
     {
-        var path = Path.Combine(Environment.CurrentDirectory, "Icons", "donut.png");
+        var path = Path.Combine(Environment.CurrentDirectory, "Icons", "telegram.png");
         var uri = new Uri(path, UriKind.Relative);
         var bitmap = new BitmapImage(uri);
         Icon = bitmap;

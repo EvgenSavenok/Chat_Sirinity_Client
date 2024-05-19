@@ -79,6 +79,7 @@
             <TextBox Grid.Column="1"
                      Padding="0 0 0 7"
                      Tag="Царапать здесь..."
+                     Text="{Binding PendingMessageText, UpdateSourceTrigger=PropertyChanged}"
                      FontSize="16"
                      BorderThickness="0"
                      AcceptsReturn="True"

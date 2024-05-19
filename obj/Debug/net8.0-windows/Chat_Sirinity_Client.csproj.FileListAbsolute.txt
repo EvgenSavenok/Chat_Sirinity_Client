@@ -44,3 +44,6 @@ C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\Contr
 C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\bin\Debug\net8.0-windows\Ninject.dll
 C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\Chat_Sirinity_Client.csproj.AssemblyReference.cache
 C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\Chat_Sir.87256560.Up2Date
+C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\CustomStyles\BtnStyles.baml
+C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\Controls\ChatList\SearchLineControl.g.cs
+C:\Users\eugen\RiderProjects\Chat_Sirinity_Client\obj\Debug\net8.0-windows\Controls\ChatList\SearchLineControl.baml

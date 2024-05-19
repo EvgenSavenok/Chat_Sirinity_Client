@@ -3,27 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:Chat_Sirinity_Client.Chats.Design"
-             xmlns:convertor="clr-namespace:Chat_Sirinity_Client.Convertors"
+             xmlns:local="clr-namespace:Chat_Sirinity_Client.Controls.ChatList"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="300">
-
-    <UserControl.Resources>
-        <Style TargetType="TextBox" x:Key="RoundedTextBoxStyle">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TextBox">
-                        <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="5">
-                            <ScrollViewer x:Name="PART_ContentHost" />
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </UserControl.Resources>
 
     <UserControl.Template>
         <ControlTemplate TargetType="UserControl">
@@ -36,22 +18,14 @@
                         <!-- Chat list -->
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    
+
                     <!-- Search line -->
                     <Grid Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*" />
-                            <ColumnDefinition Width="0.1*" />
-                        </Grid.ColumnDefinitions>
-                        <TextBox Margin="10, 10, 0, 10"
-                                 Height="25"
-                                 FontSize="18"
-                                 Style="{StaticResource RoundedTextBoxStyle}">
-                        </TextBox>
+                        <local:SearchLineControl />
                     </Grid>
-                    
+
                     <!-- Chat list -->
-                    <ContentPresenter Grid.Row="1"/>
+                    <ContentPresenter Grid.Row="1" />
 
                 </Grid>
             </Border>
